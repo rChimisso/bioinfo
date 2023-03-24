@@ -77,7 +77,6 @@ def build_k_mers_parallel_batch(iterator: FastqPhredIterator, k: int) -> list[li
   """
   seqs = [seq for read in iterator if len((seq := read.seq)) >= k]
   step = int(len(seqs) / cpu_count()) or 1
-  print(f'{len(seqs)} - {cpu_count()} - {step}')
   with Pool(cpu_count()) as pool:
     k_mers_batches = pool.map(build_k_mers_helper_batch, [(seqs[i : i + step], k) for i in range(0, len(seqs), step)])
   print('Terminated batches')

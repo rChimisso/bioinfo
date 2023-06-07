@@ -1,0 +1,16 @@
+div.document {
+  width: 100%;
+  margin: 0px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+div.body {
+  max-width: 100%;
+  padding: 0;
+  padding-left: 30px;
+}
+
+section > dl, div.footer {
+  margin-right: 30px;
+}
